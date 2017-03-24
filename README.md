@@ -16,9 +16,9 @@ of substitituions within a blink of an eye. For example, the following
 quries of small substitution examples work as expected.
 
 ```
-kyagrd@kyagrd:~/Dropbox/Saves/abellawalk/appi$ ~/github/teyjus/teyjus/tjcc appi.mod
-kyagrd@kyagrd:~/Dropbox/Saves/abellawalk/appi$ rlwrap ~/github/teyjus/teyjus/tjlink appi
-kyagrd@kyagrd:~/Dropbox/Saves/abellawalk/appi$ rlwrap ~/github/teyjus/teyjus/tjsim appi
+kyagrd@kyagrd:~/github/kyagrd/appi-lprolog$ ~/github/teyjus/teyjus/tjcc appi.mod
+kyagrd@kyagrd:~/github/kyagrd/appi-lprolog$ ~/github/teyjus/teyjus/tjlink appi
+kyagrd@kyagrd:~/github/kyagrd/appi-lprolog$ rlwrap ~/github/teyjus/teyjus/tjsim appi
 Welcome to Teyjus
 Copyright (C) 2008 A. Gacek, S. Holte, G. Nadathur, X. Qi, Z. Snow
 Teyjus comes with ABSOLUTELY NO WARRANTY
@@ -43,9 +43,25 @@ X = X
 More solutions (y/n)? y
 
 no (more) solutions
+
+kyagrd@kyagrd:~/github/kyagrd/appi-lprolog$ time (echo y | ~/github/teyjus/teyjus/tjsim appi -s "subst' X M (if (vr X) (vr X) zero zero) N.")
+
+The answer substitution:
+N = if M M zero zero
+M = M
+X = X
+
+More solutions (y/n)? 
+no (more) solutions
+
+[appi] ?- 
+
+real    0m0.004s
+user    0m0.000s
+sys     0m0.000s
 ```
 
-However, the Abella prover is incredibily slow to run quires like above (`appi.thm` file contains the quries comparable to above). It takes more than 1 hour and I gave up wating for the result, even with CPU power of the HP Z440 workstation powered by Intel's Zeon processor with a lot of cores. I'm quite sure that it is not going into an infinite loop because when I cut down the syntax of the applied pi-calculus process, say leaving only `zero` and `if` processes, then it comes back in about 10 miniutes. Below is the console output of runing `appi.thm` with Abella.
+However, the Abella prover is incredibily slow complete proof searches that corresponds to the queries above (the proof script `appi.thm` file contains the theorems comparable to above). It takes more than 1 hour to run the proof scrhipt and I gave up wating for the result, even with CPU power of the HP Z440 workstation powered by Intel's Zeon processor with a lot of cores. I'm quite sure that it is not going into an infinite loop because when I cut down the syntax of the applied pi-calculus process, say leaving only `zero` and `if` processes, then it comes back in about 10 miniutes. Below is the console output of runing `appi.thm` with Abella. (Using the Query command is pretty much the same because it must be using pretty much the same inference enginge as the search tactic.)
 
 ```
 kyagrd@kyagrd:~/github/kyagrd/appi-lprolog$ abella appi.thm
