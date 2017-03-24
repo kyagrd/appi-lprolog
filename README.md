@@ -61,7 +61,7 @@ user    0m0.000s
 sys     0m0.000s
 ```
 
-However, the Abella prover is incredibily slow complete proof searches that corresponds to the queries above (the proof script `appi.thm` file contains the theorems comparable to above). It takes more than 1 hour to run the proof scrhipt and I gave up wating for the result, even with CPU power of the HP Z440 workstation powered by Intel's Zeon processor with a lot of cores. I'm quite sure that it is not going into an infinite loop because when I cut down the syntax of the applied pi-calculus process, say leaving only `zero` and `if` processes, then it comes back in about 10 miniutes. Below is the console output of runing `appi.thm` with Abella. (Using the Query command is pretty much the same because it must be using pretty much the same inference enginge as the search tactic.)
+However, the Abella prover is incredibily slow to search proofs that corresponds to the above queries (the proof script `appi.thm` contains them). It takes more than 1 hour to run the proof script and I gave up wating for the result, even with CPU power of the HP Z440 workstation powered by Intel's Zeon processor with a lot of cores. I'm quite sure that it is not going into an infinite loop because when I cut down the syntax of the applied pi-calculus process, say leaving only `zero` and `if` processes, then it comes back in about 10 miniutes. Below is the console output of runing `appi.thm` with Abella. (Using the Query command is pretty much the same because it must be using pretty much the same inference enginge as the search tactic.)
 
 ```
 kyagrd@kyagrd:~/github/kyagrd/appi-lprolog$ abella appi.thm
