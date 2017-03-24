@@ -1,0 +1,13 @@
+Specification "appi".
+
+Theorem test_subst : forall x M, {subst x M (vr x) M}.
+intros. search.
+
+Theorem test_subst'_degenerate : forall x M, {subst' x M zero zero}.
+intros. search.
+
+Theorem test_subst' : forall x M,
+  {subst' x M (if (vr x) (vr x) zero zero)
+              (if M      M      zero zero)}.
+intros. search.
+
